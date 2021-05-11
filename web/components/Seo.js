@@ -15,8 +15,14 @@ const Seo = ({config, doc}) => {
     )
   }
 
-  const { siteTitle, siteDescription, siteUrl, defaultOpenGraphImage, social } = config
-  const { title, seoMeta } = doc
+  let title, seoMeta, siteTitle, siteDescription, siteUrl, defaultOpenGraphImage, social
+
+  if (config) {
+    ({ siteTitle, siteDescription, siteUrl, defaultOpenGraphImage, social } = config)
+  }
+  if (doc) {
+    ({ title, seoMeta } = doc)
+  }
 
   if (siteTitle || title) {
     metaTitle = (title ? title : '') + (siteTitle && title ? ' | ' : '') + (siteTitle ? siteTitle : '')
