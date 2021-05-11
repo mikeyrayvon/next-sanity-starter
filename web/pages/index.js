@@ -2,6 +2,7 @@ import { getClient } from 'utils/sanity'
 import { configQuery } from 'utils/queries'
 import Head from 'next/head'
 import groq from 'groq'
+import Link from 'next/link'
 
 import Layout from 'components/Layout'
 import Seo from 'components/Seo'
@@ -16,7 +17,21 @@ const Landing = ({ docs, config }) => {
     <Layout>
       <Seo config={config} />
       {docs && docs.length > 0 &&
-        <Container></Container>
+        <section>
+          <Container>
+            <ul className='list-disc'>
+              {docs.map(doc => {
+                return (
+                  <li key={doc._id}>
+                    <Link href={`/${doc.slug.current}`} >
+                      <a className='underline'>{doc.title}</a>
+                    </Link>
+                  </li>
+                )
+              })}
+            </ul>
+          </Container>
+        </section>
       }
     </Layout>
   )

@@ -16,7 +16,11 @@ const Post = ({ doc, config, preview }) => {
     <Layout>
       <Seo config={config} doc={doc} />
       {doc &&
-        <Container></Container>
+        <section>
+          <Container>
+            <h1 className='text-2xl'>{doc.title}</h1>
+          </Container>
+        </section>
       }
     </Layout>
   )
