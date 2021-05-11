@@ -83,8 +83,8 @@ export default {
     },
   ],
   initialValue: {
-    siteTitle: 'Ayromloo',
-    siteUrl: 'https://ayromloo.design'
+    siteTitle: 'Starter',
+    siteUrl: 'http://localhost:3000'
   },
   preview: {
     prepare() {
