@@ -1,16 +1,48 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+/* purgecss start ignore */
+@import 'fonts.css';
+
+@tailwind base;
+@tailwind components;
+
+/* purgecss end ignore */
+
+@import 'swiper.css';
+
+html, body {
+  font-size: 14px;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.container {
+  @apply max-w-screen-2xl mx-auto;
+  width: 90%;
 }
 
-* {
-  box-sizing: border-box;
+.portable-text > * {
+  @apply mb-4;
 }
+
+.portable-text > *:last-child {
+  @apply mb-0;
+}
+
+.portable-text a:link {
+  @apply underline;
+}
+
+@screen sm {
+
+}
+
+@screen md {
+
+}
+
+@screen lg {
+
+}
+
+@screen xl {
+
+}
+
+@tailwind utilities;
