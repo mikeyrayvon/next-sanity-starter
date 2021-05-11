@@ -4,10 +4,23 @@ module.exports = {
   },
   darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        pink: {
+          DEFAULT: '#FCCEE0',
+          light: '#FAECF1',
+          lightest: '#FDF2FF',
+        },
+      },
+    },
   },
   variants: {
     extend: {},
   },
-  plugins: [],
+  corePlugins: {
+    container: false,
+  },
+  plugins: [
+    require('@tailwindcss/forms'),
+  ],
 }

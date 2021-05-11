@@ -17,10 +17,7 @@ class MyDocument extends Document {
           <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png" />
           <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png" />
           <link rel="shortcut icon" href="/favicon.ico" />
-          <link rel="preload" href="/fonts/Byrd-Black.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-          <link rel="preload" href="/fonts/Byrd-Regular.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-          <link rel="preload" href="/fonts/CooperBT-Light.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-          <link rel="preload" href="/fonts/CooperBT-LightItalic.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+
           {/* Global Site Tag (gtag.js) - Google Analytics */}
           <script
             async
@@ -42,7 +39,6 @@ class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
-          <script src='https://js.stripe.com/v3/'></script>
         </body>
       </Html>
     )
