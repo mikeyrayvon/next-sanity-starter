@@ -28,7 +28,7 @@ html, body {
 .portable-text a:link {
   @apply underline;
 }
-
+/*
 @screen sm {
 
 }
@@ -44,5 +44,5 @@ html, body {
 @screen xl {
 
 }
-
+*/
 @tailwind utilities;
