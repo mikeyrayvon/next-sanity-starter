@@ -9,7 +9,14 @@ import post from './documents/post'
 import siteConfig from './documents/siteConfig'
 
 // Import objects
+import barePortableText from './objects/barePortableText'
+import figure from './objects/figure'
+import imageAlt from './objects/imageAlt'
+import internalLink from './objects/internalLink'
+import link from './objects/link'
+import portableText from './objects/portableText'
 import seoMeta from './objects/seoMeta'
+import simplePortableText from './objects/simplePortableText'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -19,8 +26,15 @@ export default createSchema({
   // to the ones provided by any plugins that are installed
   types: schemaTypes.concat([
     /* Your types here! */
+    barePortableText,
+    figure,
+    imageAlt,
+    internalLink,
+    link,
+    portableText,
     post,
     seoMeta,
-    siteConfig
+    simplePortableText,
+    siteConfig,
   ]),
 })
