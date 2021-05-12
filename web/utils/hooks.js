@@ -31,3 +31,8 @@ export const useWindowSize = () => {
 
   return windowSize;
 }
+
+export const useIsMobile = () => {
+  const windowSize = useWindowSize()
+  return windowSize.width < 768
+}
