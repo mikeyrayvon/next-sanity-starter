@@ -5,13 +5,6 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
-      colors: {
-        pink: {
-          DEFAULT: '#FCCEE0',
-          light: '#FAECF1',
-          lightest: '#FDF2FF',
-        },
-      },
     },
   },
   variants: {
