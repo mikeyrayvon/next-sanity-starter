@@ -1,7 +1,7 @@
 export default {
-  name: 'site-config',
+  name: 'config',
   type: 'document',
-  title: 'Site configuration',
+  title: 'Site Config',
   // https://www.sanity.io/docs/experimental/ui-affordances-for-actions
   //__experimental_actions: ['update', 'publish'],
   fieldsets: [

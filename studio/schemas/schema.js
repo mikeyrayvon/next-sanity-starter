@@ -6,7 +6,7 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 
 // Import documents
 import post from './documents/post'
-import siteConfig from './documents/siteConfig'
+import config from './documents/config'
 
 // Import objects
 import barePortableText from './objects/barePortableText'
@@ -27,6 +27,7 @@ export default createSchema({
   types: schemaTypes.concat([
     /* Your types here! */
     barePortableText,
+    config,
     figure,
     imageAlt,
     internalLink,
@@ -35,6 +36,5 @@ export default createSchema({
     post,
     seoMeta,
     simplePortableText,
-    siteConfig,
   ]),
 })

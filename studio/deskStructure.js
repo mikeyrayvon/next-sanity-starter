@@ -9,7 +9,7 @@ import {
 const hiddenDocTypes = listItem =>
   ![
     'post',
-    'site-config'
+    'config'
   ].includes(listItem.getId())
 
 export default () =>
@@ -23,13 +23,14 @@ export default () =>
         .child(S.documentTypeList('post').title('Posts')),
 
       S.listItem()
-        .title('Site config')
+        .title('Site Config')
         .icon(MdSettings)
         .child(
-          S.editor()
+          S.document()
             .id('config')
-            .schemaType('site-config')
-            .documentId('global-config')
+            .schemaType('config')
+            .documentId('config')
+            .title('Site Config')
         ),
 
       ...S.documentTypeListItems().filter(hiddenDocTypes),
