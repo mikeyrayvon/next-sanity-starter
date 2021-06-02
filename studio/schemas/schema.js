@@ -5,8 +5,8 @@ import createSchema from 'part:@sanity/base/schema-creator'
 import schemaTypes from 'all:part:@sanity/base/schema-type'
 
 // Import documents
-import post from './documents/post'
 import config from './documents/config'
+import post from './documents/post'
 
 // Import objects
 import barePortableText from './objects/barePortableText'

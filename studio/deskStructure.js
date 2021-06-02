@@ -8,8 +8,8 @@ import {
 // them from being listed twice
 const hiddenDocTypes = listItem =>
   ![
-    'post',
-    'config'
+    'config',
+    'post'
   ].includes(listItem.getId())
 
 export default () =>
