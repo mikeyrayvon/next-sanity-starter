@@ -3,7 +3,7 @@ import Footer from 'components/Footer'
 
 const Layout = ({ children }) => {
   return (
-    <div className=''>
+    <div className='overflow-x-hidden'>
       <Header />
       <main>{children}</main>
       <Footer />
