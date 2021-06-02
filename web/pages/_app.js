@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import 'styles/globals.css'
 import * as gtag from 'utils/gtag'
+import { StateProvider } from 'utils/store.js';
 
 const App = ({ Component, pageProps }) => {
   const router = useRouter()
@@ -15,7 +16,11 @@ const App = ({ Component, pageProps }) => {
     }
   }, [router.events])
 
-  return <Component {...pageProps} />
+  return (
+    <StateProvider>
+      <Component {...pageProps} />
+    </StateProvider>
+  )
 }
 
 export default App
