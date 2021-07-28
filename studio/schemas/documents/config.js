@@ -83,8 +83,8 @@ export default {
     },
   ],
   initialValue: {
-    siteTitle: 'Faltpavillon',
-    siteUrl: 'https://faltpavillon.land'
+    siteTitle: 'Starter',
+    siteUrl: 'http://localhost:3000'
   },
   preview: {
     prepare() {

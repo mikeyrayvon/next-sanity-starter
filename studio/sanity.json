@@ -1,11 +1,11 @@
 {
   "root": true,
-  "api": {
-    "projectId": "lidm2r3n",
-    "dataset": "production"
-  },
   "project": {
     "name": "Starter"
+  },
+  "api": {
+    "projectId": "3lugmt1t",
+    "dataset": "production"
   },
   "plugins": [
     "@sanity/base",
@@ -17,10 +17,6 @@
   ],
   "env": {
     "development": {
-      "api": {
-        "projectId": "lidm2r3n",
-        "dataset": "staging"
-      },
       "plugins": [
         "@sanity/vision"
       ]
