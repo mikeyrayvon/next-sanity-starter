@@ -6,6 +6,11 @@ node_modules
 *.pem
 *.code-workspace
 
+# env
+.env.local
+.env.development.local
+.env.production.local
+
 # debug
 npm-debug.log*
 yarn-debug.log*
