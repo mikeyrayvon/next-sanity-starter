@@ -1,6 +1,6 @@
 // Import documents
 import config from "./documents/config";
-import post from "./documents/post";
+import page from "./documents/page";
 
 // Import objects
 import barePortableText from "./objects/barePortableText";
@@ -21,8 +21,8 @@ export default [
   imageAlt,
   internalLink,
   link,
+  page,
   portableText,
-  post,
   seoMeta,
   simplePortableText,
 ];

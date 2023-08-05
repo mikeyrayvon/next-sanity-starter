@@ -1,19 +1,16 @@
 module.exports = {
-  purge: {
-    content: ['./components/**/*.js', './pages/**/*.js', './utils/sanity.js'],
-  },
-  darkMode: false, // or 'media' or 'class'
+  mode: "jit",
+  content: ["./components/**/*.tsx", "./pages/**/*.tsx", "./utils/types.ts"],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ["Helvetica Neue", "Helvetica", "sans-serif"],
+        serif: ["Libre Baskerville", "Times New Roman", "Times", "serif"],
+      },
     },
-  },
-  variants: {
-    extend: {},
   },
   corePlugins: {
     container: false,
   },
-  plugins: [
-    require('@tailwindcss/forms'),
-  ],
-}
+  plugins: [require("@tailwindcss/forms")],
+};

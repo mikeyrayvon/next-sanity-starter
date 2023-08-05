@@ -1,11 +1,10 @@
 import {
-  groq,
   createClient,
   createImageUrlBuilder,
-  createPortableTextComponent,
   createPreviewSubscriptionHook,
 } from "next-sanity";
 import Link from "next/link";
+import { PortableText as PortableTextComponent } from "@portabletext/react";
 
 const config = {
   /**
@@ -15,8 +14,8 @@ const config = {
    *
    * https://nextjs.org/docs/basic-features/environment-variables
    **/
-  dataset: process.env.NEXT_PUBLIC_SANITY_STUDIO_API_DATASET,
-  projectId: process.env.NEXT_PUBLIC_SANITY_STUDIO_API_PROJECT_ID,
+  dataset: process.env.NEXT_PUBLIC_SANITY_STUDIO_DATASET,
+  projectId: process.env.NEXT_PUBLIC_SANITY_STUDIO_PROJECT_ID,
   useCdn: process.env.NODE_ENV === "production",
   /**
    * Set useCdn to `false` if your application require the freshest possible
@@ -37,11 +36,12 @@ export const urlFor = (source) => {
 export const usePreviewSubscription = createPreviewSubscriptionHook(config);
 
 // Set up Portable Text serialization
-export const PortableText = createPortableTextComponent({
-  ...config,
-  // Serializers passed to @sanity/block-content-to-react
-  // (https://github.com/sanity-io/block-content-to-react)
-  serializers: {
+export const PortableText = (props) => (
+  <PortableTextComponent components={PortableTextComponents} {...props} />
+);
+
+const PortableTextComponents = {
+  types: {
     container: ({ children, className }) => (
       <div className={`portable-text ${className && className}`}>
         {children}
@@ -51,21 +51,19 @@ export const PortableText = createPortableTextComponent({
       <ul className="list-disc ml-8">{children}</ul>
     ),
     listItem: ({ props, children }) => <li className="mb-2">{children}</li>,
-    marks: {
-      internalLink: ({ mark, children }) => {
-        const { slug, type } = mark;
-        let href = "";
-        href += type === "issue" || type === "report" ? `/${type}s` : "";
-        href += `/${slug}`;
-        return <Link href={href}>{children}</Link>;
-      },
-      actionLink: ({ mark, children }) => {
-        const { slug } = mark;
-        return <Link href={`/issues/${slug}?action`}>{children}</Link>;
-      },
+  },
+  marks: {
+    internalLink: ({ children, value }) => {
+      const { slug } = value;
+
+      return (
+        <Link href={`/${slug}`} className="underline">
+          {children}
+        </Link>
+      );
     },
   },
-});
+};
 
 // Set up the client for fetching data in the getProps page functions
 export const sanityClient = createClient(config);
@@ -77,5 +75,5 @@ export const previewClient = createClient({
 });
 
 // Helper function for easily switching between normal client and preview client
-export const getClient = (usePreview) =>
+export const getClient = (usePreview = false) =>
   usePreview ? previewClient : sanityClient;

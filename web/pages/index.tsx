@@ -1,6 +1,5 @@
 import { getClient } from "utils/sanity";
 import { configQuery } from "utils/queries";
-import Head from "next/head";
 import groq from "groq";
 import Link from "next/link";
 
@@ -9,7 +8,7 @@ import Seo from "components/Seo";
 import Container from "components/Container";
 
 const query = groq`
-  *[_type == 'post']
+  *[_type == 'page']
 `;
 
 const Landing = ({ docs, config }) => {

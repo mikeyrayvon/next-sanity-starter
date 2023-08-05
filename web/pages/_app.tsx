@@ -2,8 +2,9 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 import "styles/globals.css";
 import * as gtag from "utils/gtag";
-import { StateProvider } from "utils/store.js";
 import type { AppProps } from "next/app";
+import Head from "next/head";
+import { ConfigContext } from "utils/context";
 
 const App = ({ Component, pageProps }: AppProps) => {
   const router = useRouter();
@@ -18,9 +19,21 @@ const App = ({ Component, pageProps }: AppProps) => {
   }, [router]);
 
   return (
-    <StateProvider>
-      <Component {...pageProps} />
-    </StateProvider>
+    <>
+      <Head>
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1"
+        />
+      </Head>
+      <ConfigContext.Provider
+        value={{
+          ...pageProps.config,
+        }}
+      >
+        <Component {...pageProps} />
+      </ConfigContext.Provider>
+    </>
   );
 };
 

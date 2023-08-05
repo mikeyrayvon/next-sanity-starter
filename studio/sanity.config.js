@@ -1,33 +1,28 @@
 import { defineConfig } from "sanity";
 import { deskTool } from "sanity/desk";
 import { visionTool } from "@sanity/vision";
-import { muxInput } from "sanity-plugin-mux-input";
-import { colorInput } from "@sanity/color-input";
 import schemas from "./schemas/schema";
 import deskStructure from "./deskStructure";
+
+console.log(process.env);
 
 export default defineConfig([
   {
     name: "production-workspace",
-    title: "ooo",
-    projectId: "y1gidup7",
-    dataset: "production",
+    title: "Starter",
+    projectId: process.env.SANITY_STUDIO_PROJECT_ID,
+    dataset: process.env.SANITY_STUDIO_DATASET,
     basePath: "/production",
     document: {
       productionUrl: (prev, context) => {
-        const { client, dataset, document } = context;
+        const { document } = context;
 
-        if (
-          document._type === "post" ||
-          document._type === "page" ||
-          document._type === "landing"
-        ) {
+        if (document._type === "page") {
           // Any random string, must match SANITY_PREVIEW_SECRET in the Next.js .env.local file
-          const previewSecret =
-            "j8heapkqy4rdz6kudrvsc7ywpvfhrv022abyx5zgmuwpc1xv";
+          const previewSecret = process.env.SANITY_STUDIO_PREVIEW_SECRET;
 
           // Replace `remoteUrl` with your deployed Next.js site
-          const remoteUrl = `https://ooo.place`;
+          const remoteUrl = `https://website.com`;
           const localUrl = `http://localhost:3000`;
 
           const baseUrl =
@@ -53,27 +48,7 @@ export default defineConfig([
       deskTool({
         structure: deskStructure,
       }),
-      muxInput(),
       visionTool(),
-      colorInput(),
-    ],
-    schema: {
-      types: schemas,
-    },
-  },
-  {
-    name: "staging-workspace",
-    title: "ooo Staging",
-    projectId: "y1gidup7",
-    dataset: "development",
-    basePath: "/staging",
-    plugins: [
-      deskTool({
-        structure: deskStructure,
-      }),
-      muxInput(),
-      visionTool(),
-      colorInput(),
     ],
     schema: {
       types: schemas,
