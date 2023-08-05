@@ -16,13 +16,14 @@
   ],
   "dependencies": {
     "@sanity/desk-tool": "^2.10.2",
-    "@sanity/vision": "^2.10.0",
+    "@sanity/vision": "^3.14.5",
     "prop-types": "^15.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.2.0",
     "sanity": "^3.14.4",
-    "sanity-plugin-media-library": "^1.0.7"
+    "sanity-plugin-media-library": "^1.0.7",
+    "styled-components": "^5.2"
   },
   "devDependencies": {
     "@sanity/cli": "^3.2.6"
