@@ -7,6 +7,7 @@
   "author": "Michael Ray-Von <michaelrayvon@gmail.com>",
   "license": "UNLICENSED",
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "start": "sanity start",
     "build": "sanity build",
     "dev": "sanity dev"
