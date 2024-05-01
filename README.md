@@ -1,4 +1,4 @@
-1. `cd studio && pnpm i && sanity init` to create sanity database and install deps
+1. `cd studio && pnpm i` to create sanity database and install deps
 2. update `project.name` in `studio/sanity.json`
 3. add staging database to `development.api` settings in `studio/sanity.json`
 4. update initial `siteTitle` and `siteUrl` values in `studio/schemas/documents/config.js`
